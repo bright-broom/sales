@@ -1,36 +1,122 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WSS CLASS Landing Page
 
-## Getting Started
+WSS CLASS 風の営業スクール向けランディングページです。
 
-First, run the development server:
+## 技術スタック
+
+- **フレームワーク**: Next.js 15+ (App Router)
+- **言語**: TypeScript 5+
+- **スタイリング**: Tailwind CSS v4
+- **アイコン**: lucide-react
+- **フォント**: Noto Sans JP (Google Fonts)
+- **ホスティング**: Vercel
+
+## セットアップ
+
+### 必要条件
+
+- Node.js 18+
+- pnpm (推奨) または npm
+
+### インストール
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# リポジトリをクローン
+git clone <repository-url>
+cd sound
+
+# 依存関係をインストール
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 開発
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# 開発サーバーを起動
+pnpm dev
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# http://localhost:3000 でアクセス
+```
 
-## Learn More
+## ビルド
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# プロダクションビルド
+pnpm build
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# ビルド結果をローカルで確認
+pnpm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## プロジェクト構成
 
-## Deploy on Vercel
+```
+src/
+├── app/
+│   ├── layout.tsx       # ルートレイアウト
+│   ├── page.tsx         # メインページ
+│   └── globals.css      # グローバルスタイル
+├── components/
+│   ├── layout/          # Header, Footer
+│   ├── sections/        # 各セクションコンポーネント
+│   └── ui/              # 共通UIコンポーネント
+├── data/                # 静的データ
+└── lib/                 # ユーティリティ、定数
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## セクション一覧
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Hero（ファーストビュー）
+2. StepToChange
+3. TargetAudience（対象者）
+4. WhatIsWSS（WSSクラスとは）
+5. Endorsements（推薦者の声）
+6. Point01（直案件獲得）
+7. Point02（サブスク型ビジネス）
+8. Point03Curriculum（カリキュラム）
+9. LiveContent（LIVE内容）
+10. Point04Options（オプションサービス）
+11. CTABlock（中間CTA）
+12. StudentSuccess（受講生の成功事例）
+13. TeamMembers（運営メンバー）
+14. Blog（ブログ）
+15. Recommended（おすすめ）
+16. FAQ（よくある質問）
+17. LegalSection（利用規約・プライバシーポリシー）
+18. FinalCTA（最終CTA）
+
+## デプロイ
+
+### Vercel へのデプロイ
+
+1. GitHub にリポジトリをプッシュ
+2. [Vercel](https://vercel.com) にログイン
+3. 「New Project」からリポジトリを選択
+4. デプロイ設定は自動検出されます
+5. 「Deploy」をクリック
+
+### 環境変数
+
+v1 では環境変数は不要です。
+
+## カスタマイズ
+
+### LINE URL の変更
+
+`src/lib/constants.ts` の `LINE_URL` を本番の LINE 公式アカウント URL に変更してください。
+
+```ts
+export const LINE_URL = "https://line.me/R/ti/p/@your-account";
+```
+
+### コンテンツの更新
+
+- FAQ: `src/data/faq.ts`
+- カリキュラム: `src/data/curriculum.ts`
+- 受講生の声: `src/data/students.ts`
+- LIVE内容: `src/data/liveContent.ts`
+- オプション: `src/data/options.ts`
+
+## ライセンス
+
+Private
